@@ -1,0 +1,192 @@
+
+/* Familia de fuentes para toda la página */
+
+* {
+    font-family: 'Ubuntu',Tahoma, Geneva, Verdana, sans-serif;
+    margin=0;
+    box-sizing: border-box;
+}
+main{
+    margin-top: 0;
+}
+p {
+    color: black;
+    font-size: 22px;  
+    margin=60px;
+}
+h1 {
+    color:rgb(68, 114, 175);
+    font-size: 24px;
+    font-weight: bold;
+}
+h2 {
+    color:darkblue;
+    font-size: 18px;
+    font-weight: bold;
+}
+h3 {
+    color:darkblue;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+.formulario{
+    display: flex;
+    align-content: center;
+    width: fit-content;
+}
+.locales {
+    color: grey;
+    font-size: 16px;
+    padding-left: 5px;
+}
+body { 
+    margin:0px;
+    background-color: rgb(231, 235, 240);
+    align-items: center;
+}  
+
+.header{
+    position:sticky;
+    top=0;
+    left=0;
+    height: 60px;
+    width: 100%;
+    background-color: darkslategray;
+    color: white;
+    font-family: 'Ubuntu',Tahoma, Geneva, Verdana, sans-serif
+}
+.formulario{
+    display: flex;
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+    margin=0 auto;
+}
+.nav-link{
+    color: white;
+    text-decoration: none;
+}
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0 20px;
+    line-height: 60px;
+  }
+.menu{
+    display: flex;
+    margin-right: 25px;
+    list-style: none;
+}
+.item-menu{
+    color: white;
+    font-size: 16px;
+    margin: 0 5px;
+    line-height: 40px;
+    width: max-content;
+}
+.item-menu-link{
+    padding: 8px 8px;
+}
+.item-menu-link:hover{
+    border-top: 3px solid rgb(231, 235, 240);
+    background-color: rgb(236, 164, 56);
+    transition: 0.15s;
+}
+.toggle{
+    color: white;
+    background: none;
+    border: none;
+    font-size: 30px;
+    padding: 0 20px;
+    line-height: 60px;
+    cursor: pointer;
+    display: none;
+  }
+
+/*----------------------------------------------------------------*/
+/* Definimos el contenedor grid                                   */
+/*----------------------------------------------------------------*/
+.contenedor {
+    display: grid;
+    grid-template: 70px 1fr auto / auto% auto auto; /*auto = 1fr*/
+    grid-template-areas: "header header header" 
+                         "izq centro der" 
+                         "pie pie pie";
+    gap: 2%;
+    height: 97vh;    
+}
+
+
+/*----------------------------------------------------------------*/
+/* Defino el nombre y color de cada area del grid                 */
+/*----------------------------------------------------------------*/
+.header     { grid-area: header;    background-color: rgb(86, 90, 97);}
+.izq        { grid-area: izq;       background-color: rgb(175, 187, 226);}
+.der        { grid-area: der;       background-color: rgb(175, 187, 226);}
+.centro     { grid-area: contenido; background-color: rgb(175, 187, 226);}
+.pie        { grid-area: pie;       background-color: rgb(106, 111, 119);}
+
+
+/*----------------------------------------------------------------*/
+/* Definimos la apariencia de cada item del grid                  */
+/*----------------------------------------------------------------*/
+.item {
+    padding: 5px;
+    color: white;
+    border-radius: 1px;
+}
+
+/*----------------------------------------------------------------*/
+/* Punto de corte para pantallas tipo tablet                      */
+/*----------------------------------------------------------------*/
+@media only screen and (max-width: 800px) {
+    .menu{
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(64, 66, 66);
+        margin-right: 20px;
+        position: fixed;
+        left=0;
+        top=60px;
+        overflow-y: auto;
+        left: 100%;
+        transition: left 0.3s;
+    }
+    .item-menu-link:hover,
+    .item-menu-link_active {
+      color: #83c5f7;
+    }
+    .toggle{
+        display: block;
+    }
+    .menu_visible {
+        left: 0;
+    }
+    .toggle:focus:not(:focus-visible) {
+        outline: none;
+    }  
+    .contenedor {
+        /* Uso un atajo para definir 4 filas / 2 columnas */
+        grid-template: 70px auto auto 60px / auto auto; 
+
+        /* Distribuimos el contenido en cada fila */
+        grid-template-areas: "header header" "izq centro" "der der" "pie pie";
+    }
+}
+
+
+/*----------------------------------------------------------------*/
+/* Punto de corte para pantallas tipo celular                     */
+/*----------------------------------------------------------------*/
+@media only screen and (max-width: 600px) {
+    .contenedor {
+        /* Uso un atajo para definir 5 filas / 1 columna */
+        grid-template: 70px auto auto auto 60px / 100%; 
+
+        /* Distribuimos el contenido en cada fila */
+        grid-template-areas: "header" "izq" "centro" "der" "pie";
+    }
+}
