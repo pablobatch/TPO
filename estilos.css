@@ -3,8 +3,6 @@
 
 * {
     font-family: 'Ubuntu',Tahoma, Geneva, Verdana, sans-serif;
-    margin=0;
-    box-sizing: border-box;
 }
 main{
     margin-top: 0;
@@ -12,7 +10,7 @@ main{
 p {
     color: black;
     font-size: 22px;  
-    margin=60px;
+    margin=0px;
 }
 h1 {
     color:rgb(68, 114, 175);
@@ -30,6 +28,14 @@ h3 {
     font-weight: bold;
     text-align: center;
 }
+/* Fuente para las fotos */
+h4 {
+    color: white;
+    background-color: rgba(100,100,100,0.9);
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
 .formulario{
     display: flex;
     align-content: center;
@@ -41,29 +47,49 @@ h3 {
     padding-left: 5px;
 }
 body { 
-    margin:0px;
+    margin: 0 0;
     background-color: rgb(231, 235, 240);
     align-items: center;
 }  
-
 .header{
-    position:sticky;
     top=0;
     left=0;
     height: 60px;
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* width: 100%; */
     background-color: darkslategray;
     color: white;
-    font-family: 'Ubuntu',Tahoma, Geneva, Verdana, sans-serif
+    /* font-family: 'Ubuntu',Tahoma, Geneva, Verdana, sans-serif; */
+    box-shadow: 0 4px 5px rgb(106, 111, 119);
 }
-.formulario{
+.footer{
+    height: 30px;
+    width: 100%;
     display: flex;
+    justify-content: center;
+    color:rgb(64, 66, 66)
+}
+.item-footer{
+    color: rgb(64, 66, 66);
+    font-size: 16px;
+    margin: 0 5px;
+    line-height: 30px;
+    width: max-content;
+}
+.item-footer-link{
+    color: rgb(64, 66, 66);
+    background-color: darkslategray;
+    padding: 2px 8px;
+}
+.item-footer-link:hover{
+    background-color: rgb(182, 117, 20);
 }
 .nav{
     display: flex;
     justify-content: space-between;
     max-width: 800px;
-    margin=0 auto;
+
 }
 .nav-link{
     color: white;
@@ -110,16 +136,51 @@ body {
 /* Definimos el contenedor grid                                   */
 /*----------------------------------------------------------------*/
 .contenedor {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding: 40px;
     display: grid;
+    grid-template-columns: 3fr;
+    gap: 20px;
+
+    /* display: grid;
     grid-template: 70px 1fr auto / auto% auto auto; /*auto = 1fr*/
-    grid-template-areas: "header header header" 
-                         "izq centro der" 
-                         "pie pie pie";
-    gap: 2%;
-    height: 97vh;    
+    /* grid-template-areas: "header header header"  */
+                         /* "izq centro der" 
+                         "pie pie pie"; */
+    /* gap: 2%;
+    height: 97vh;      */
 }
-
-
+.contenedor-fotos{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.tarjeta{
+    border-radius: 10px;
+    min-height: 200px;
+    font-weight: bold;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+}
+.tarjeta .textos{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+}
+.texto{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.texto.item{
+    width: 70%;
+}
 /*----------------------------------------------------------------*/
 /* Defino el nombre y color de cada area del grid                 */
 /*----------------------------------------------------------------*/
@@ -168,12 +229,12 @@ body {
     .toggle:focus:not(:focus-visible) {
         outline: none;
     }  
-    .contenedor {
+    /* .contenedor {
         /* Uso un atajo para definir 4 filas / 2 columnas */
-        grid-template: 70px auto auto 60px / auto auto; 
+        /* grid-template: 70px auto auto 60px / auto auto;  */
 
         /* Distribuimos el contenido en cada fila */
-        grid-template-areas: "header header" "izq centro" "der der" "pie pie";
+        /* grid-template-areas: "header header" "izq centro" "der der" "pie pie"; */ */
     }
 }
 
@@ -182,7 +243,7 @@ body {
 /* Punto de corte para pantallas tipo celular                     */
 /*----------------------------------------------------------------*/
 @media only screen and (max-width: 600px) {
-    .contenedor {
+    .contenedor2 {
         /* Uso un atajo para definir 5 filas / 1 columna */
         grid-template: 70px auto auto auto 60px / 100%; 
 
