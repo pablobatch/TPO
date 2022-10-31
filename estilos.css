@@ -10,7 +10,7 @@ main{
 p {
     color: black;
     font-size: 22px;  
-    margin=0px;
+    margin: 0px;
 }
 h1 {
     color:rgb(68, 114, 175);
@@ -52,8 +52,8 @@ body {
     align-items: center;
 }  
 .header{
-    top=0;
-    left=0;
+    top:0;
+    left:0;
     height: 60px;
     display: flex;
     justify-content: center;
@@ -210,8 +210,8 @@ body {
         background-color: rgb(64, 66, 66);
         margin-right: 20px;
         position: fixed;
-        left=0;
-        top=60px;
+        left:0;
+        top:60px;
         overflow-y: auto;
         left: 100%;
         transition: left 0.3s;
@@ -234,8 +234,8 @@ body {
         /* grid-template: 70px auto auto 60px / auto auto;  */
 
         /* Distribuimos el contenido en cada fila */
-        /* grid-template-areas: "header header" "izq centro" "der der" "pie pie"; */ */
-    }
+        /* grid-template-areas: "header header" "izq centro" "der der" "pie pie"; */ 
+    
 }
 
 
